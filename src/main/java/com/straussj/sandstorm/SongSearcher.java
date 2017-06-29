@@ -1,12 +1,12 @@
 package com.straussj.sandstorm;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sound.midi.Track;
 
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
@@ -16,6 +16,7 @@ import com.wrapper.spotify.methods.TrackSearchRequest;
 import com.wrapper.spotify.methods.authentication.ClientCredentialsGrantRequest;
 import com.wrapper.spotify.models.ClientCredentials;
 import com.wrapper.spotify.models.Page;
+import com.wrapper.spotify.models.Track;
 
 /**
  * Servlet implementation class SongSearcher
@@ -47,6 +48,7 @@ public class SongSearcher extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		// configure api
 		final String clientId = "521ecc79d9f74c358a699843edf026e4";
 		final String clientSecret = "cbac7aa2600f4fadaf7704103796efc4";
@@ -82,17 +84,14 @@ public class SongSearcher extends HttpServlet {
 			}
 		});
 
-		TrackSearchRequest songRequest = api.searchTracks(request.getParameter("Song name")).market("US").build();
+		TrackSearchRequest songRequest = api.searchTracks(request.getParameter("Song name")).market("US").limit(10).build();
 		try {
 			final Page<com.wrapper.spotify.models.Track> trackSearchResult = songRequest.get();
-			int numResults = trackSearchResult.getTotal();
-			request.getSession().setAttribute("numResults", numResults);
-			
+			final List<Track> tracks = trackSearchResult.getItems();
+			request.getSession().setAttribute("tracks", tracks);
 			response.sendRedirect("SongSearchReturn.jsp");
 		} catch (Exception e) {
-			int numResults = 0;
-			request.getSession().setAttribute("numResults", numResults);
-			response.sendRedirect("SongSearchReturn.jsp");
+			response.sendRedirect("Error.jsp");
 		}
 	}
 

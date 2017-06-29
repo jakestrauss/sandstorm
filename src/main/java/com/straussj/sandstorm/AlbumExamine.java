@@ -12,42 +12,41 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.SettableFuture;
 import com.wrapper.spotify.Api;
-import com.wrapper.spotify.methods.TrackSearchRequest;
+import com.wrapper.spotify.methods.AlbumRequest;
 import com.wrapper.spotify.methods.authentication.ClientCredentialsGrantRequest;
+import com.wrapper.spotify.models.Album;
 import com.wrapper.spotify.models.ClientCredentials;
 import com.wrapper.spotify.models.Page;
-import com.wrapper.spotify.models.Track;
+import com.wrapper.spotify.models.SimpleTrack;
 
 /**
- * Servlet implementation class SongSearcher
+ * Servlet implementation class ArtistExamine
  */
-public class SongSearcher extends HttpServlet {
+public class AlbumExamine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AlbumExamine() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public SongSearcher() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//first get authorization details worked out
 		
 		// configure api
 		final String clientId = "521ecc79d9f74c358a699843edf026e4";
@@ -83,14 +82,16 @@ public class SongSearcher extends HttpServlet {
 				 */
 			}
 		});
-
-		TrackSearchRequest songRequest = api.searchTracks(request.getParameter("Song name")).market("US").limit(10).build();
+		final AlbumRequest albumRequest = api.getAlbum(request.getParameter("Album name")).build();
 		try {
-			final Page<com.wrapper.spotify.models.Track> trackSearchResult = songRequest.get();
-			final List<Track> tracks = trackSearchResult.getItems();
+			final Album album = albumRequest.get();
+			final Page<SimpleTrack> albumPage = album.getTracks();
+			final List<SimpleTrack> tracks = albumPage.getItems();
 			request.getSession().setAttribute("tracks", tracks);
 			response.sendRedirect("SongSearchReturn.jsp");
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
 			response.sendRedirect("Error.jsp");
 		}
 	}

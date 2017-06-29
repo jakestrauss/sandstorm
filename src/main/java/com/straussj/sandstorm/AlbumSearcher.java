@@ -12,22 +12,22 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.SettableFuture;
 import com.wrapper.spotify.Api;
-import com.wrapper.spotify.methods.TrackSearchRequest;
+import com.wrapper.spotify.methods.AlbumSearchRequest;
 import com.wrapper.spotify.methods.authentication.ClientCredentialsGrantRequest;
 import com.wrapper.spotify.models.ClientCredentials;
 import com.wrapper.spotify.models.Page;
-import com.wrapper.spotify.models.Track;
+import com.wrapper.spotify.models.SimpleAlbum;
 
 /**
- * Servlet implementation class SongSearcher
+ * Servlet implementation class ArtistSearcher
  */
-public class SongSearcher extends HttpServlet {
+public class AlbumSearcher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SongSearcher() {
+	public AlbumSearcher() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -48,6 +48,8 @@ public class SongSearcher extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		//first get authorization details worked out
 		
 		// configure api
 		final String clientId = "521ecc79d9f74c358a699843edf026e4";
@@ -84,15 +86,19 @@ public class SongSearcher extends HttpServlet {
 			}
 		});
 
-		TrackSearchRequest songRequest = api.searchTracks(request.getParameter("Song name")).market("US").limit(10).build();
+		
+		//search for artist
+		System.out.println(request.getParameter("Album name"));
+		AlbumSearchRequest albumRequest = api.searchAlbums(request.getParameter("Album name")).market("US").limit(5).build();
 		try {
-			final Page<com.wrapper.spotify.models.Track> trackSearchResult = songRequest.get();
-			final List<Track> tracks = trackSearchResult.getItems();
-			request.getSession().setAttribute("tracks", tracks);
-			response.sendRedirect("SongSearchReturn.jsp");
+			final Page<SimpleAlbum> albumSearchResult = albumRequest.get();
+			final List<SimpleAlbum> albums = albumSearchResult.getItems();
+			request.getSession().setAttribute("albums", albums);
+			response.sendRedirect("AlbumSearchReturn.jsp");
 		} catch (Exception e) {
 			response.sendRedirect("Error.jsp");
 		}
 	}
 
 }
+

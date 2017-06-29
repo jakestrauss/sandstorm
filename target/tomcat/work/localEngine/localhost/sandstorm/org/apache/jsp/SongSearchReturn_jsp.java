@@ -73,7 +73,6 @@ public final class SongSearchReturn_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\t\t<tr>\n");
       out.write("\t\t\t<th>Song name</th>\n");
       out.write("\t\t\t<th>Artist name</th>\n");
-      out.write("\t\t\t<th>Popularity</th>\n");
       out.write("\t\t</tr>\n");
       out.write("\t\t\n");
       out.write("\t\t");
@@ -107,9 +106,9 @@ public final class SongSearchReturn_jsp extends org.apache.jasper.runtime.HttpJs
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /SongSearchReturn.jsp(23,2) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/SongSearchReturn.jsp(23,2) '${tracks}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${tracks}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /SongSearchReturn.jsp(23,2) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /SongSearchReturn.jsp(22,2) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/SongSearchReturn.jsp(22,2) '${tracks}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${tracks}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /SongSearchReturn.jsp(22,2) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("list");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
@@ -123,9 +122,6 @@ public final class SongSearchReturn_jsp extends org.apache.jasper.runtime.HttpJs
           out.write("</td>\n");
           out.write("\t\t\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${list.artists[0].name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</td>\n");
-          out.write("\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${list.popularity}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</td>\n");
           out.write("\t\t\t</tr>\n");
           out.write("\t\t");

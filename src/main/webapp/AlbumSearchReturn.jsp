@@ -4,25 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Song Search Return</title>
+<title>Album Search Return</title>
 </head>
 <body>
-	<h1>Search for Song</h1>
-	<form method="post" action="SongSearcher">
-		<input type="text" name="Song name"><br> <input
-			type="submit" value="Search">
-	</form>
-	<br>
 	<table>
 		<tr>
-			<th>Song name</th>
-			<th>Artist name</th>
+			<th>Album Name</th>
 		</tr>
 		
-		<c:forEach items="${tracks}" var="list">
+		<c:forEach items="${albums}" var="album">
 			<tr>
-				<td>${list.name}</td>
-				<td>${list.artists[0].name}</td>
+				<td>${album.name}</td>
+				<td>
+					<form method="post" action="AlbumExamine">
+						<button type="submit" name="Album name" value="${album.id}">Select album</button>
+					</form>
+				</td>
 			</tr>
 		</c:forEach>	
 		

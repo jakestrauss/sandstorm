@@ -1,6 +1,7 @@
 package com.straussj.sandstorm;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,8 +13,10 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.SettableFuture;
 import com.wrapper.spotify.Api;
+import com.wrapper.spotify.methods.AlbumRequest;
 import com.wrapper.spotify.methods.AlbumSearchRequest;
 import com.wrapper.spotify.methods.authentication.ClientCredentialsGrantRequest;
+import com.wrapper.spotify.models.Album;
 import com.wrapper.spotify.models.ClientCredentials;
 import com.wrapper.spotify.models.Page;
 import com.wrapper.spotify.models.SimpleAlbum;
@@ -92,7 +95,14 @@ public class AlbumSearcher extends HttpServlet {
 		AlbumSearchRequest albumRequest = api.searchAlbums(request.getParameter("Album name")).market("US").limit(5).build();
 		try {
 			final Page<SimpleAlbum> albumSearchResult = albumRequest.get();
-			final List<SimpleAlbum> albums = albumSearchResult.getItems();
+			final List<SimpleAlbum> simpleAlbums = albumSearchResult.getItems();
+			final List<Album> albums = new ArrayList<Album>();
+			for (SimpleAlbum a : simpleAlbums) {
+				AlbumRequest aRequest = api.getAlbum(a.getId()).build();
+				Album aAlbum = aRequest.get();
+				albums.add(aAlbum);
+			}
+			
 			request.getSession().setAttribute("albums", albums);
 			response.sendRedirect("AlbumSearchReturn.jsp");
 		} catch (Exception e) {

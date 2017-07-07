@@ -15,6 +15,7 @@
 		<c:forEach items="${albums}" var="album">
 			<tr>
 				<td>${album.name}</td>
+				<td>${album.artists[0].name}</td>
 				<td>
 					<form method="post" action="AlbumExamine">
 						<button type="submit" name="Album name" value="${album.id}">Select album</button>

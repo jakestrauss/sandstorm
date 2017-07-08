@@ -70,7 +70,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("    \t<h1>sandstorm</h1>\n");
-      out.write("    \t<h3>Create a playlist to sandstorm</h3>\n");
+      out.write("    \t<h3>Choose songs to add to a playlist to sandstorm</h3>\n");
       out.write("    \t<br>\n");
       out.write("    \t<table>\n");
       out.write("    \t\t<tr>\n");

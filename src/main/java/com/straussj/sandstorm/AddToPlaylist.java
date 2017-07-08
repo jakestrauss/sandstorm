@@ -1,8 +1,6 @@
 package com.straussj.sandstorm;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,24 +11,22 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.SettableFuture;
 import com.wrapper.spotify.Api;
-import com.wrapper.spotify.methods.AlbumRequest;
-import com.wrapper.spotify.methods.AlbumSearchRequest;
+import com.wrapper.spotify.exceptions.WebApiException;
+import com.wrapper.spotify.methods.TrackRequest;
 import com.wrapper.spotify.methods.authentication.ClientCredentialsGrantRequest;
-import com.wrapper.spotify.models.Album;
 import com.wrapper.spotify.models.ClientCredentials;
-import com.wrapper.spotify.models.Page;
-import com.wrapper.spotify.models.SimpleAlbum;
-
+import com.wrapper.spotify.models.Track;
+import com.straussj.sandstorm.LocalPlaylist;
 /**
  * Servlet implementation class ArtistSearcher
  */
-public class AlbumSearcher extends HttpServlet {
+public class AddToPlaylist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AlbumSearcher() {
+	public AddToPlaylist() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -51,9 +47,10 @@ public class AlbumSearcher extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		//first get authorization details worked out
-		
+
+		// first get authorization details worked out
+
+		// configure api
 		// configure api
 		final String clientId = "03f02ed981ec452aaaba403ae35cfca1";
 		final String clientSecret = "5d74bd30f6094346ab30365a65605a02";
@@ -89,26 +86,28 @@ public class AlbumSearcher extends HttpServlet {
 			}
 		});
 
-		
-		//search for artist
-		System.out.println(request.getParameter("Album name"));
-		AlbumSearchRequest albumRequest = api.searchAlbums(request.getParameter("Album name")).market("US").limit(5).build();
-		try {
-			final Page<SimpleAlbum> albumSearchResult = albumRequest.get();
-			final List<SimpleAlbum> simpleAlbums = albumSearchResult.getItems();
-			final List<Album> albums = new ArrayList<Album>();
-			for (SimpleAlbum a : simpleAlbums) {
-				AlbumRequest aRequest = api.getAlbum(a.getId()).build();
-				Album aAlbum = aRequest.get();
-				albums.add(aAlbum);
+		// check to see if playlist has already been created
+		if (request.getSession().getAttribute("playlist") != null) {
+			TrackRequest tRequest = api.getTrack(request.getParameter("Song")).build();
+			final LocalPlaylist playlist = (LocalPlaylist)request.getSession().getAttribute("playlist");
+			try {
+				playlist.addTrack(tRequest.get());
+				request.getSession().setAttribute("playlist", playlist);
+				response.sendRedirect("SongSearchReturn.jsp");
+			} catch (WebApiException e) {
+				response.sendRedirect("Error.jsp");
 			}
-			
-			request.getSession().setAttribute("albums", albums);
-			response.sendRedirect("AlbumSearchReturn.jsp");
-		} catch (Exception e) {
-			response.sendRedirect("Error.jsp");
+		} else {
+			TrackRequest tRequest = api.getTrack(request.getParameter("Song")).build();
+			try {
+				Track t = tRequest.get();
+				final LocalPlaylist playlist = new LocalPlaylist(t);
+				request.getSession().setAttribute("playlist", playlist);
+				response.sendRedirect("SongSearchReturn.jsp");
+			} catch (WebApiException e) {
+				response.sendRedirect("Error.jsp");
+			}
 		}
 	}
 
 }
-

@@ -67,4 +67,14 @@
     <servlet-name>AlbumExamine</servlet-name>
     <url-pattern>/AlbumExamine</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddToPlaylist</display-name>
+    <servlet-name>AddToPlaylist</servlet-name>
+    <servlet-class>com.straussj.sandstorm.AddToPlaylist</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToPlaylist</servlet-name>
+    <url-pattern>/AddToPlaylist</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -52,8 +52,8 @@ public class ArtistSearcher extends HttpServlet {
 		//first get authorization details worked out
 		
 		// configure api
-		final String clientId = "521ecc79d9f74c358a699843edf026e4";
-		final String clientSecret = "cbac7aa2600f4fadaf7704103796efc4";
+		final String clientId = "03f02ed981ec452aaaba403ae35cfca1";
+		final String clientSecret = "5d74bd30f6094346ab30365a65605a02";
 		final Api api = Api.builder().clientId(clientId).clientSecret(clientSecret).build();
 
 		final ClientCredentialsGrantRequest clientRequest = api.clientCredentialsGrant().build();

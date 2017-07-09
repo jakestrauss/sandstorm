@@ -15,6 +15,7 @@
 </style>
     </head>
     <body>
+    	<jsp:include page="Header.jsp" />
     	<h1>sandstorm</h1>
     	<h3>Choose songs to add to a playlist to sandstorm</h3>
     	<br>

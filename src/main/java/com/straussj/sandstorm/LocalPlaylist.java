@@ -27,6 +27,10 @@ public class LocalPlaylist implements Serializable {
 		tracks.add(t);
 	}
 	
+	public void removeTrack(int i) {
+		tracks.remove(i);
+	}
+	
 	public List<Track> getTracks() {
 		return tracks;
 	}

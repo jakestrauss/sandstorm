@@ -7,6 +7,8 @@
 <title>Album Search Return</title>
 </head>
 <body>
+	<jsp:include page="Header.jsp" />
+	<br>
 	<table>
 		<tr>
 			<th>Album Name</th>
@@ -25,7 +27,7 @@
 		</c:forEach>	
 		
 	</table>
-
+	<jsp:include page="BackToHome.jsp" />
 
 
 </body>

@@ -85,6 +85,7 @@ public class ArtistExamine extends HttpServlet {
 		try {
 			final List<Track> topTracks = tracksRequest.get();
 			request.getSession().setAttribute("tracks", topTracks);
+			request.getSession().setAttribute("currentPage", "SongSearchReturn.jsp");
 			response.sendRedirect("SongSearchReturn.jsp");
 		}
 		catch (Exception e) {

@@ -7,6 +7,8 @@
 <title>Artist Search Return</title>
 </head>
 <body>
+	<jsp:include page="Header.jsp" />
+	<br>
 	<table>
 		<tr>
 			<th>Artist Name</th>
@@ -24,7 +26,7 @@
 		</c:forEach>	
 		
 	</table>
-
+	<jsp:include page="BackToHome.jsp" />
 
 
 </body>

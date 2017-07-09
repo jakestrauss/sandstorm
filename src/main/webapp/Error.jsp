@@ -8,5 +8,6 @@
 </head>
 <body>
 An internal server error has occurred.
+<jsp:include page="BackToHome.jsp" />
 </body>
 </html>

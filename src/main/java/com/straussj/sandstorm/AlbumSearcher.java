@@ -104,6 +104,7 @@ public class AlbumSearcher extends HttpServlet {
 			}
 			
 			request.getSession().setAttribute("albums", albums);
+			request.getSession().setAttribute("currentPage", "AlbumSearchReturn.jsp");
 			response.sendRedirect("AlbumSearchReturn.jsp");
 		} catch (Exception e) {
 			response.sendRedirect("Error.jsp");

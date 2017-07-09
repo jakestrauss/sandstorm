@@ -77,4 +77,24 @@
     <servlet-name>AddToPlaylist</servlet-name>
     <url-pattern>/AddToPlaylist</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>IndexReturn</display-name>
+    <servlet-name>IndexReturn</servlet-name>
+    <servlet-class>com.straussj.sandstorm.IndexReturn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexReturn</servlet-name>
+    <url-pattern>/IndexReturn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveSongFromPlaylist</display-name>
+    <servlet-name>RemoveSongFromPlaylist</servlet-name>
+    <servlet-class>com.straussj.sandstorm.RemoveSongFromPlaylist</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveSongFromPlaylist</servlet-name>
+    <url-pattern>/RemoveSongFromPlaylist</url-pattern>
+  </servlet-mapping>
 </web-app>

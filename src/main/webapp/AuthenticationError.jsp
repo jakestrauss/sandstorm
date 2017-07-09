@@ -8,5 +8,6 @@
 </head>
 <body>
 The Spotify server cannot be reached due to lack of authentication.
+<jsp:include page="BackToHome.jsp" />
 </body>
 </html>

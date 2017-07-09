@@ -89,6 +89,7 @@ public class SongSearcher extends HttpServlet {
 			final Page<com.wrapper.spotify.models.Track> trackSearchResult = songRequest.get();
 			final List<Track> tracks = trackSearchResult.getItems();
 			request.getSession().setAttribute("tracks", tracks);
+			request.getSession().setAttribute("currentPage", "SongSearchReturn.jsp");
 			response.sendRedirect("SongSearchReturn.jsp");
 		} catch (Exception e) {
 			response.sendRedirect("Error.jsp");

@@ -93,6 +93,7 @@ public class AddToPlaylist extends HttpServlet {
 			try {
 				playlist.addTrack(tRequest.get());
 				request.getSession().setAttribute("playlist", playlist);
+				request.getSession().setAttribute("currentPage", "SongSearchReturn.jsp");
 				response.sendRedirect("SongSearchReturn.jsp");
 			} catch (WebApiException e) {
 				response.sendRedirect("Error.jsp");
@@ -103,6 +104,7 @@ public class AddToPlaylist extends HttpServlet {
 				Track t = tRequest.get();
 				final LocalPlaylist playlist = new LocalPlaylist(t);
 				request.getSession().setAttribute("playlist", playlist);
+				request.getSession().setAttribute("currentPage", "SongSearchReturn.jsp");
 				response.sendRedirect("SongSearchReturn.jsp");
 			} catch (WebApiException e) {
 				response.sendRedirect("Error.jsp");

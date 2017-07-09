@@ -94,6 +94,7 @@ public class ArtistSearcher extends HttpServlet {
 			final Page<Artist> artistSearchResult = artistRequest.get();
 			final List<Artist> artists = artistSearchResult.getItems();
 			request.getSession().setAttribute("artists", artists);
+			request.getSession().setAttribute("currentPage", "ArtistSearchReturn.jsp");
 			response.sendRedirect("ArtistSearchReturn.jsp");
 		} catch (Exception e) {
 			response.sendRedirect("Error.jsp");

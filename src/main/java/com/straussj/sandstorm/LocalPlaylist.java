@@ -24,7 +24,18 @@ public class LocalPlaylist implements Serializable {
 	}
 	
 	public void addTrack(Track t) {
-		tracks.add(t);
+		boolean uniq = true;
+		//check for uniqueness
+		for(Track tSel : tracks) {
+			if(t.getId().equals(tSel.getId())) {
+				uniq = false;
+				break;
+			}
+		}
+		if(uniq) {
+			tracks.add(t);
+		}
+		
 	}
 	
 	public void removeTrack(int i) {

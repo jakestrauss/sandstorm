@@ -23,7 +23,7 @@ public class LocalPlaylist implements Serializable {
 		tracks.add(t);
 	}
 	
-	public void addTrack(Track t) {
+	public boolean addTrack(Track t) {
 		boolean uniq = true;
 		//check for uniqueness
 		for(Track tSel : tracks) {
@@ -32,8 +32,13 @@ public class LocalPlaylist implements Serializable {
 				break;
 			}
 		}
-		if(uniq) {
+		
+		//add if unique or if sandstorming
+		if(uniq || t.getId().equals("24CXuh2WNpgeSYUOvz14jk")) {
 			tracks.add(t);
+			return true;
+		} else {
+			return false;
 		}
 		
 	}

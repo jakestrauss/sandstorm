@@ -97,4 +97,14 @@
     <servlet-name>RemoveSongFromPlaylist</servlet-name>
     <url-pattern>/RemoveSongFromPlaylist</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SandstormPlaylist</display-name>
+    <servlet-name>SandstormPlaylist</servlet-name>
+    <servlet-class>com.straussj.sandstorm.SandstormPlaylist</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SandstormPlaylist</servlet-name>
+    <url-pattern>/SandstormPlaylist</url-pattern>
+  </servlet-mapping>
 </web-app>

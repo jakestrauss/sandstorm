@@ -91,7 +91,12 @@ public class AddToPlaylist extends HttpServlet {
 			TrackRequest tRequest = api.getTrack(request.getParameter("Song")).build();
 			final LocalPlaylist playlist = (LocalPlaylist)request.getSession().getAttribute("playlist");
 			try {
-				playlist.addTrack(tRequest.get());
+				boolean added = playlist.addTrack(tRequest.get());
+				if(!added) {
+					request.getSession().setAttribute("addedToPlaylist", false);
+				} else {
+					request.getSession().setAttribute("addedToPlaylist", true);
+				}
 				request.getSession().setAttribute("playlist", playlist);
 				request.getSession().setAttribute("currentPage", "SongSearchReturn.jsp");
 				response.sendRedirect("SongSearchReturn.jsp");

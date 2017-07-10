@@ -90,6 +90,7 @@ public class SongSearcher extends HttpServlet {
 			final List<Track> tracks = trackSearchResult.getItems();
 			request.getSession().setAttribute("tracks", tracks);
 			request.getSession().setAttribute("currentPage", "SongSearchReturn.jsp");
+			request.getSession().setAttribute("addedToPlaylist", true);
 			response.sendRedirect("SongSearchReturn.jsp");
 		} catch (Exception e) {
 			response.sendRedirect("Error.jsp");

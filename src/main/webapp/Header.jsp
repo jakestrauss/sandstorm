@@ -7,8 +7,8 @@
 <title>Header</title>
 </head>
 <body>
-	<c:if test="${not empty playlist}">
-		<h1>Current Playlist</h1>
+	<c:if test="${not empty playlist && empty sandstorm}">
+		<h2>Current Playlist</h2>
 		<table>
 			<tr>
 				<th>Song name</th>
@@ -26,8 +26,40 @@
 					</td>
 				</tr>
 			</c:forEach>	
-		
-		</table>
+		</table>	
+		<c:if test="${playlist.size < 3 && playlist.size > 0}">
+				<h4><font color="red">Your playlist must have at least 3 songs in order to sandstorm it!</font></h4>
+		</c:if>
+			
+		<c:if test="${playlist.size >=3}">
+			<table>
+				<tr>
+					<td> <h4><font color="red">Your playlist is eligible to sandstorm!</font></h4> </td>
+					<td>
+						<form method="post" action="SandstormPlaylist">
+							<button type="submit">Sandstorm Playlist</button>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</c:if>
+	</c:if>
+	
+	<c:if test="${not empty sandstorm}">
+		<h2><font color="#BCB028">Sandstormed Playlist</font></h2>
+			<table>
+				<tr>
+					<th><font color="#BCB028">Song name</font></th>
+					<th><font color="#BCB028">Artist name</font></th>
+				</tr>
+				
+				<c:forEach items="${playlist.tracks}" var="track">
+					<tr>
+						<td><font color="#BCB028">${track.name}</font></td>
+						<td><font color="#BCB028">${track.artists[0].name}</font></td>
+					</tr>
+				</c:forEach>	
+			</table>	
 	</c:if>
 </body>
 </html>

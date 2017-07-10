@@ -1,7 +1,6 @@
 package com.straussj.sandstorm;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,21 +11,21 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.SettableFuture;
 import com.wrapper.spotify.Api;
-import com.wrapper.spotify.methods.TopTracksRequest;
+import com.wrapper.spotify.methods.TrackRequest;
 import com.wrapper.spotify.methods.authentication.ClientCredentialsGrantRequest;
 import com.wrapper.spotify.models.ClientCredentials;
 import com.wrapper.spotify.models.Track;
 
 /**
- * Servlet implementation class ArtistExamine
+ * Servlet implementation class SandstormPlaylist
  */
-public class ArtistExamine extends HttpServlet {
+public class SandstormPlaylist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ArtistExamine() {
+    public SandstormPlaylist() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,7 +42,6 @@ public class ArtistExamine extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		//first get authorization details worked out
 		
 		// configure api
@@ -80,17 +78,27 @@ public class ArtistExamine extends HttpServlet {
 				 */
 			}
 		});
-		System.out.println(request.getParameter("Artist name"));
-		final TopTracksRequest tracksRequest = api.getTopTracksForArtist(request.getParameter("Artist name"), "US").build();
-		try {
-			final List<Track> topTracks = tracksRequest.get();
-			request.getSession().setAttribute("tracks", topTracks);
-			request.getSession().setAttribute("currentPage", "SongSearchReturn.jsp");
-			request.getSession().setAttribute("addedToPlaylist", true);
-			response.sendRedirect("SongSearchReturn.jsp");
+		
+		LocalPlaylist playlist = (LocalPlaylist)request.getSession().getAttribute("playlist");
+		int size = playlist.getSize();
+		
+		//remove all tracks
+		for(int i = 0; i < size; i++) {
+			playlist.removeTrack(0);
+			
 		}
-		catch (Exception e) {
-			System.out.println(e.getMessage());
+		
+		//replace with sandstorm
+		final TrackRequest tRequest = api.getTrack("24CXuh2WNpgeSYUOvz14jk").build();
+		try {
+			final Track sandstorm = tRequest.get();
+			for(int i = 0; i < size; i++) {
+				playlist.addTrack(sandstorm);
+			}
+			request.getSession().setAttribute("playlist", playlist);
+			request.getSession().setAttribute("sandstorm", true);
+			response.sendRedirect("index.jsp");
+		} catch(Exception e) {
 			response.sendRedirect("Error.jsp");
 		}
 	}

@@ -89,6 +89,7 @@ public class AlbumExamine extends HttpServlet {
 			final List<SimpleTrack> tracks = albumPage.getItems();
 			request.getSession().setAttribute("tracks", tracks);
 			request.getSession().setAttribute("currentPage", "SongSearchReturn.jsp");
+			request.getSession().setAttribute("addedToPlaylist", true);
 			response.sendRedirect("SongSearchReturn.jsp");
 		}
 		catch (Exception e) {

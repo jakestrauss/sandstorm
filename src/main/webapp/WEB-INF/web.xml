@@ -107,4 +107,44 @@
     <servlet-name>SandstormPlaylist</servlet-name>
     <url-pattern>/SandstormPlaylist</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StartOver</display-name>
+    <servlet-name>StartOver</servlet-name>
+    <servlet-class>com.straussj.sandstorm.StartOver</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StartOver</servlet-name>
+    <url-pattern>/StartOver</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExportToSpotify</display-name>
+    <servlet-name>ExportToSpotify</servlet-name>
+    <servlet-class>com.straussj.sandstorm.ExportToSpotify</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExportToSpotify</servlet-name>
+    <url-pattern>/ExportToSpotify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExportProcessing</display-name>
+    <servlet-name>ExportProcessing</servlet-name>
+    <servlet-class>com.straussj.sandstorm.ExportProcessing</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExportProcessing</servlet-name>
+    <url-pattern>/ExportProcessing</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Callback</display-name>
+    <servlet-name>Callback</servlet-name>
+    <servlet-class>com.straussj.sandstorm.Callback</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Callback</servlet-name>
+    <url-pattern>/Callback</url-pattern>
+  </servlet-mapping>
 </web-app>

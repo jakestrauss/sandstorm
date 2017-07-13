@@ -14,7 +14,6 @@ function formSubmit() {
 } 
 </script>
 <body>
-	Test
 	<form method="post" action="ExportProcessing">
 		<input type = "hidden" name="code" value="${param.code}">
 		<input type = "hidden" name="userID" value="${param.client_id}">

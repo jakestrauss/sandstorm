@@ -79,13 +79,11 @@ public class ExportProcessing extends HttpServlet {
 		try {
 			final User user = currentuserrequest.get();
 			userID = user.getId();
-			System.out.println("Successfully retrieverd userID, which is " + userID);
 		} catch(Exception e) {
 			System.out.println("didn't get userID, error code is " + e.getMessage());
 		}
 		
 		//create new playlist for user
-		System.out.println("This is my userID " + userID);
 		final PlaylistCreationRequest PCrequest = api.createPlaylist(userID, "sandstorm").publicAccess(true).build();
 		String playlistID = "";
 		try {
@@ -112,7 +110,11 @@ public class ExportProcessing extends HttpServlet {
 			response.sendRedirect("Error.jsp");
 		}
 		
-		response.sendRedirect("ExportSuccess.jsp");
+		//reset some attributes for correct home page
+		request.getSession().setAttribute("exported", true);
+		request.getSession().removeAttribute("sandstorm");
+		request.getSession().removeAttribute("playlist");
+		response.sendRedirect("index.jsp");
 	}
 
 }

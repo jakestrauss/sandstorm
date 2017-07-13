@@ -7,7 +7,12 @@
 <title>Header</title>
 </head>
 <body>
-	<c:if test="${not empty playlist && empty sandstorm}">
+	<c:if test="${exported == true}">
+		<h3><font color="#BCB028">Sandstormed playlist successfully exported to your Spotify account!<br/>
+		Feel free to create another playlist to sandstorm if you wish!</font></h3>
+		<c:set var="exported" scope="session" value="false"/>
+	</c:if>
+	<c:if test="${not empty playlist && empty sandstorm && playlist.size > 0}">
 		<h2>Current Playlist</h2>
 		<table>
 			<tr>

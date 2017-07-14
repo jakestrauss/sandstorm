@@ -26,6 +26,11 @@
 			<tr>
 				<td>${track.name}</td>
 				<td>${track.artists[0].name}</td>
+				<td>
+					<c:set var="thisSongURL" value="https://open.spotify.com/embed?uri="/>
+					<c:set var="thisSongURL" value="${thisSongURL}${track.uri}"/>
+					<iframe src="${thisSongURL}" frameborder="0" allowtransparency="true"></iframe>
+				</td>
 				
 				<c:set var="notYetAdded" value="true"/>
 				<c:forEach items="${playlist.tracks}" var="playlistTrack">

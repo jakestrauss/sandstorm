@@ -40,7 +40,7 @@ public class ExportToSpotify extends HttpServlet {
 		Api api = Api.builder()
 				  .clientId("03f02ed981ec452aaaba403ae35cfca1")
 				  .clientSecret("5d74bd30f6094346ab30365a65605a02")
-				  .redirectURI("https://sandstorm-by-jake-strauss.herokuapp.com/callback.jsp")
+				  .redirectURI("http:localhost:8080/sandstorm/callback.jsp")
 				  .build();
 		
 		/* Set the necessary scopes that the application will need from the user */

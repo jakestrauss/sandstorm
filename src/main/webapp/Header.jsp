@@ -24,6 +24,10 @@
 				<tr>
 					<td>${track.name}</td>
 					<td>${track.artists[0].name}</td>
+					<c:set var="thisSongURL" value="https://open.spotify.com/embed?uri="/>
+					<c:set var="thisSongURL" value="${thisSongURL}${track.uri}"/>
+					<td><iframe src="${thisSongURL}" frameborder="0" allowtransparency="true"></iframe>
+					</td>
 					<td>
 						<form method="post" action="RemoveSongFromPlaylist">
 							<button type="submit" name="Song index" value="${loop.index}">Remove Song</button>
@@ -62,6 +66,9 @@
 					<tr>
 						<td><font color="#BCB028">${track.name}</font></td>
 						<td><font color="#BCB028">${track.artists[0].name}</font></td>
+						<c:set var="thisSongURL" value="https://open.spotify.com/embed?uri="/>
+						<c:set var="thisSongURL" value="${thisSongURL}${track.uri}"/>
+					<td><iframe src="${thisSongURL}" frameborder="0" allowtransparency="true"></iframe></td>
 					</tr>
 				</c:forEach>	
 			</table>	

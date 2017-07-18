@@ -176,7 +176,7 @@ public final class SongSearchReturn_jsp extends org.apache.jasper.runtime.HttpJs
           out.write("\n");
           out.write("\t\t\t\t\t<iframe src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${thisSongURL}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("\" frameborder=\"0\" allowtransparency=\"true\"></iframe>\n");
+          out.write("\" frameborder=\"0\" allowtransparency=\"true\" height=\"110\"></iframe>\n");
           out.write("\t\t\t\t</td>\n");
           out.write("\t\t\t\t\n");
           out.write("\t\t\t\t");

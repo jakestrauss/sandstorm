@@ -1,4 +1,16 @@
-.paddingBetweenCols td
-{
-    padding:0 45px 0 45px;
+html {
+	height:100%;
+}
+
+body {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1f7f9+0,ade5f1+28,ade5f1+30,c5ebf3+79,e2f7fc+100 */
+	background: rgb(241,247,249); /* Old browsers */
+	background: -moz-linear-gradient(-45deg, rgba(241,247,249,1) 0%, rgba(173,229,241,1) 28%, rgba(173,229,241,1) 30%, rgba(197,235,243,1) 79%, rgba(226,247,252,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, rgba(241,247,249,1) 0%,rgba(173,229,241,1) 28%,rgba(173,229,241,1) 30%,rgba(197,235,243,1) 79%,rgba(226,247,252,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgba(241,247,249,1) 0%,rgba(173,229,241,1) 28%,rgba(173,229,241,1) 30%,rgba(197,235,243,1) 79%,rgba(226,247,252,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f7f9', endColorstr='#e2f7fc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }

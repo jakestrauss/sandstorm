@@ -61,11 +61,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write(" \t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("/styles/main.css\" />\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
+      out.write("    \t<meta charset=\"utf-8\">\n");
+      out.write("    \t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
+      out.write("    \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write(" \t\t<!-- Bootstrap -->\n");
+      out.write("    \t<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <title>sandstorm home</title>\n");
       out.write("        <style type=\"text/css\">\n");
       out.write("\t\ttd\n");
       out.write("\t\t{\n");
@@ -110,51 +111,43 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f0.setParent(null);
-    // /index.jsp(20,5) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /index.jsp(23,5) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${empty sandstorm}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t    \t<h1>sandstorm</h1>\n");
+        out.write("\t    \t<h1 style=\"font-family:Condiment\">sandstorm</h1>\n");
         out.write("\t    \t<h3>Choose songs to add to a playlist to sandstorm</h3>\n");
         out.write("\t    \t<br>\n");
-        out.write("\t    \t<table>\n");
-        out.write("\t    \t\t<tr>\n");
-        out.write("\t\t\t\t\t<th>Search for song</th>\n");
-        out.write("\t\t\t\t\t<th>Search for artist</th>\n");
-        out.write("\t\t\t\t\t<th>Search for album</th>\n");
-        out.write("\t\t\t\t</tr>\n");
+        out.write("\t    \t<div class=\"container\">\n");
         out.write("\t\t\t\t\n");
-        out.write("\t\t\t\t<tr>\n");
-        out.write("\t\t    \t\t<td class=\"paddingBetweenCols\">\n");
-        out.write("\t\t        \t\t<form method=\"post\" action=\"SongSearcher\">\n");
-        out.write("\t\t        \t\t\t<div>\n");
-        out.write("\t\t        \t\t\t\t<input type = \"text\" name=\"Song name\"><br>\n");
-        out.write("\t\t        \t\t\t\t<input type = \"submit\" value=\"Search\">\n");
-        out.write("\t\t        \t\t\t</div>\n");
-        out.write("\t\t        \t\t</form>\n");
-        out.write("\t\t        \t</td>\n");
+        out.write("\t\t\t\t<div class=\"row\">\n");
+        out.write("\t\t\t\t\t<form method=\"post\" action=\"SongSearcher\">\n");
+        out.write("\t\t\t    \t\t<div class=\"col-md-3 form-group\">\n");
+        out.write("\t\t\t    \t\t\t<label for=\"Song name\">Search for song</label>\n");
+        out.write("\t\t\t    \t\t\t<input type=\"text\" class=\"form-control\" name=\"Song name\" placeholder=\"Song name\">\n");
+        out.write("\t\t\t        \t\t<button type=\"submit\" class=\"btn btn-primary\">Search</button>\n");
+        out.write("\t\t\t        \t</div>\n");
+        out.write("\t\t        \t</form>\n");
         out.write("\t        \t\n");
-        out.write("\t\t        \t<td class=\"paddingBetweenCols\">\n");
-        out.write("\t\t        \t\t<form method=\"post\" action=\"ArtistSearcher\">\n");
-        out.write("\t\t        \t\t\t<div>\n");
-        out.write("\t\t        \t\t\t\t<input type = \"text\" name=\"Artist name\"><br>\n");
-        out.write("\t\t        \t\t\t\t<input type = \"submit\" value=\"Search\">\n");
-        out.write("\t\t        \t\t\t</div>\n");
-        out.write("\t\t        \t\t</form>\n");
-        out.write("\t\t        \t</td>\n");
+        out.write("\t        \t\t<form method=\"post\" action=\"ArtistSearcher\">\n");
+        out.write("\t\t        \t\t<div class=\"col-md-3 form-group\">\n");
+        out.write("\t\t\t    \t\t\t<label for=\"Artist name\">Search for artist</label>\n");
+        out.write("\t\t\t    \t\t\t<input type=\"text\" class=\"form-control\" name=\"Artist name\" placeholder=\"Artist name\">\n");
+        out.write("\t\t\t        \t\t<button type=\"submit\" class=\"btn btn-primary\">Search</button>\n");
+        out.write("\t\t\t        \t</div>\n");
+        out.write("\t\t        \t</form>\n");
         out.write("\t        \t\n");
-        out.write("\t\t        \t<td class=\"paddingBetweenCols\">\n");
-        out.write("\t\t        \t\t<form method=\"post\" action=\"AlbumSearcher\">\n");
-        out.write("\t\t        \t\t\t<div>\n");
-        out.write("\t\t        \t\t\t\t<input type = \"text\" name=\"Album name\"><br>\n");
-        out.write("\t\t        \t\t\t\t<input type = \"submit\" value=\"Search\">\n");
-        out.write("\t\t        \t\t\t</div>\n");
-        out.write("\t\t        \t\t</form>\n");
-        out.write("\t\t        \t</td>\n");
-        out.write("\t\t        </tr>\n");
-        out.write("\t       </table>\n");
+        out.write("\t\t        \t<form method=\"post\" action=\"AlbumSearcher\">\n");
+        out.write("\t\t        \t\t<div class=\"col-md-3 form-group\">\n");
+        out.write("\t\t\t    \t\t\t<label for=\"Album name\">Search for artist</label>\n");
+        out.write("\t\t\t    \t\t\t<input type=\"text\" class=\"form-control\" name=\"Album name\" placeholder=\"Album name\">\n");
+        out.write("\t\t\t        \t\t<button type=\"submit\" class=\"btn btn-primary\">Search</button>\n");
+        out.write("\t\t\t        \t</div>\n");
+        out.write("\t\t        \t</form>\n");
+        out.write("\t\t        </div>\n");
+        out.write("\t       </div>\n");
         out.write("\t\t");
         int evalDoAfterBody = _jspx_th_c_005fif_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -177,7 +170,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f1.setParent(null);
-    // /index.jsp(62,2) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /index.jsp(57,2) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fif_005f1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${not empty sandstorm}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fif_005f1 = _jspx_th_c_005fif_005f1.doStartTag();
     if (_jspx_eval_c_005fif_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {

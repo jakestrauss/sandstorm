@@ -5,9 +5,12 @@
 
 <html>
     <head>
- 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/main.css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 		<!-- Bootstrap -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>sandstorm home</title>
         <style type="text/css">
 		td
 		{
@@ -18,45 +21,37 @@
     <body>
     	<jsp:include page="Header.jsp" />
     	<c:if test="${empty sandstorm}">
-	    	<h1>sandstorm</h1>
+	    	<h1 style="font-family:Condiment">sandstorm</h1>
 	    	<h3>Choose songs to add to a playlist to sandstorm</h3>
 	    	<br>
-	    	<table>
-	    		<tr>
-					<th>Search for song</th>
-					<th>Search for artist</th>
-					<th>Search for album</th>
-				</tr>
+	    	<div class="container">
 				
-				<tr>
-		    		<td class="paddingBetweenCols">
-		        		<form method="post" action="SongSearcher">
-		        			<div>
-		        				<input type = "text" name="Song name"><br>
-		        				<input type = "submit" value="Search">
-		        			</div>
-		        		</form>
-		        	</td>
+				<div class="row">
+					<form method="post" action="SongSearcher">
+			    		<div class="col-md-3 form-group">
+			    			<label for="Song name">Search for song</label>
+			    			<input type="text" class="form-control" name="Song name" placeholder="Song name">
+			        		<button type="submit" class="btn btn-primary">Search</button>
+			        	</div>
+		        	</form>
 	        	
-		        	<td class="paddingBetweenCols">
-		        		<form method="post" action="ArtistSearcher">
-		        			<div>
-		        				<input type = "text" name="Artist name"><br>
-		        				<input type = "submit" value="Search">
-		        			</div>
-		        		</form>
-		        	</td>
+	        		<form method="post" action="ArtistSearcher">
+		        		<div class="col-md-3 form-group">
+			    			<label for="Artist name">Search for artist</label>
+			    			<input type="text" class="form-control" name="Artist name" placeholder="Artist name">
+			        		<button type="submit" class="btn btn-primary">Search</button>
+			        	</div>
+		        	</form>
 	        	
-		        	<td class="paddingBetweenCols">
-		        		<form method="post" action="AlbumSearcher">
-		        			<div>
-		        				<input type = "text" name="Album name"><br>
-		        				<input type = "submit" value="Search">
-		        			</div>
-		        		</form>
-		        	</td>
-		        </tr>
-	       </table>
+		        	<form method="post" action="AlbumSearcher">
+		        		<div class="col-md-3 form-group">
+			    			<label for="Album name">Search for artist</label>
+			    			<input type="text" class="form-control" name="Album name" placeholder="Album name">
+			        		<button type="submit" class="btn btn-primary">Search</button>
+			        	</div>
+		        	</form>
+		        </div>
+	       </div>
 		</c:if>
 		
 		<c:if test="${not empty sandstorm}">

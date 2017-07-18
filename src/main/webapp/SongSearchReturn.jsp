@@ -29,7 +29,7 @@
 				<td>
 					<c:set var="thisSongURL" value="https://open.spotify.com/embed?uri="/>
 					<c:set var="thisSongURL" value="${thisSongURL}${track.uri}"/>
-					<iframe src="${thisSongURL}" frameborder="0" allowtransparency="true"></iframe>
+					<iframe src="${thisSongURL}" frameborder="0" allowtransparency="true" height="110"></iframe>
 				</td>
 				
 				<c:set var="notYetAdded" value="true"/>

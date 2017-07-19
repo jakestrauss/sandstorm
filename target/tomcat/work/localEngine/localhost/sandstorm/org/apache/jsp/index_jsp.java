@@ -117,10 +117,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t    \t<h1 style=\"font-family:Condiment\">sandstorm</h1>\n");
-        out.write("\t    \t<h3>Choose songs to add to a playlist to sandstorm</h3>\n");
+        out.write("\t    \t<h1 style=\"font-family:Condiment; margin-left:15px\">sandstorm</h1>\n");
+        out.write("\t    \t<h3 style=\"margin-left:15px\">Choose songs to add to a playlist to sandstorm</h3>\n");
         out.write("\t    \t<br>\n");
-        out.write("\t    \t<div class=\"container\">\n");
+        out.write("\t    \t<div class=\"container-fluid\">\n");
         out.write("\t\t\t\t\n");
         out.write("\t\t\t\t<div class=\"row\">\n");
         out.write("\t\t\t\t\t<form method=\"post\" action=\"SongSearcher\">\n");
@@ -141,7 +141,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("\t        \t\n");
         out.write("\t\t        \t<form method=\"post\" action=\"AlbumSearcher\">\n");
         out.write("\t\t        \t\t<div class=\"col-md-3 form-group\">\n");
-        out.write("\t\t\t    \t\t\t<label for=\"Album name\">Search for artist</label>\n");
+        out.write("\t\t\t    \t\t\t<label for=\"Album name\">Search for album</label>\n");
         out.write("\t\t\t    \t\t\t<input type=\"text\" class=\"form-control\" name=\"Album name\" placeholder=\"Album name\">\n");
         out.write("\t\t\t        \t\t<button type=\"submit\" class=\"btn btn-primary\">Search</button>\n");
         out.write("\t\t\t        \t</div>\n");

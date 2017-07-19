@@ -10,16 +10,24 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel = "stylesheet" type = "text/css" href = "styles/main.css" />
 <link href='https://fonts.googleapis.com/css?family=Condiment' rel='stylesheet'>
+<c:choose>
+	    <c:when test="${not empty sandstorm}">
+	        <c:set var="bodyClass" value="sandstormBody"/>
+	    </c:when>
+	    <c:otherwise>
+	        <c:set var="bodyClass" value="body"/>
+	    </c:otherwise>
+</c:choose>
 <title>Header</title>
 </head>
-<body>
+<body class="${bodyClass}">
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script> 
 	<c:if test="${exported == true}">
-		<h3><font color="#BCB028">Sandstormed playlist successfully exported to your Spotify account!<br/>
-		Feel free to create another playlist to sandstorm if you wish!</font></h3>
-		<c:set var="exported" scope="session" value="false"/>
+		<div class="container alert alert-warning left" style="margin-bottom: -5px; margin-top:5px;">Sandstormed playlist successfully exported to your Spotify account!
+		Feel free to create another playlist to sandstorm if you wish!</div>
 	</c:if>
 	<c:if test="${not empty playlist && empty sandstorm && playlist.size > 0}">
 		<h2 style="padding-left:10px">Current Playlist</h2>
@@ -48,6 +56,7 @@
 		</div>
 		<c:if test="${playlist.size < 3 && playlist.size > 0}">
 				<div class="container alert alert-danger alert-dismissable">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				Your playlist must have at least 3 songs in order to sandstorm it!</div>
 		</c:if>
 			

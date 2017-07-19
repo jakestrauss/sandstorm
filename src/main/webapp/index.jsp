@@ -21,10 +21,10 @@
     <body>
     	<jsp:include page="Header.jsp" />
     	<c:if test="${empty sandstorm}">
-	    	<h1 style="font-family:Condiment">sandstorm</h1>
-	    	<h3>Choose songs to add to a playlist to sandstorm</h3>
+	    	<h1 style="font-family:Condiment; margin-left:15px">sandstorm</h1>
+	    	<h3 style="margin-left:15px">Choose songs to add to a playlist to sandstorm</h3>
 	    	<br>
-	    	<div class="container">
+	    	<div class="container-fluid">
 				
 				<div class="row">
 					<form method="post" action="SongSearcher">
@@ -45,7 +45,7 @@
 	        	
 		        	<form method="post" action="AlbumSearcher">
 		        		<div class="col-md-3 form-group">
-			    			<label for="Album name">Search for artist</label>
+			    			<label for="Album name">Search for album</label>
 			    			<input type="text" class="form-control" name="Album name" placeholder="Album name">
 			        		<button type="submit" class="btn btn-primary">Search</button>
 			        	</div>

@@ -529,18 +529,18 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_005fif_005f4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t<h2><font color=\"#BCB028\">Sandstormed Playlist</font></h2>\n");
-        out.write("\t\t\t<table>\n");
-        out.write("\t\t\t\t<tr>\n");
-        out.write("\t\t\t\t\t<th><font color=\"#BCB028\">Song name</font></th>\n");
-        out.write("\t\t\t\t\t<th><font color=\"#BCB028\">Artist name</font></th>\n");
-        out.write("\t\t\t\t</tr>\n");
+        out.write("\t\t<h2 style=\"margin-left:10px\">Sandstormed Playlist</h2>\n");
+        out.write("\t\t\t<div class=\"container\">\n");
+        out.write("\t\t\t\t<div class=\"row\">\n");
+        out.write("\t\t\t\t\t<div class=\"col-md-2\"><h3>Song name</h3></div>\n");
+        out.write("\t\t\t\t\t<div class=\"col-md-2\"><h3>Artist name</h3></div>\n");
+        out.write("\t\t\t\t</div>\n");
         out.write("\t\t\t\t\n");
         out.write("\t\t\t\t");
         if (_jspx_meth_c_005fforEach_005f1(_jspx_th_c_005fif_005f4, _jspx_page_context))
           return true;
         out.write("\t\n");
-        out.write("\t\t\t</table>\t\n");
+        out.write("\t\t\t</div>\t\n");
         out.write("\t");
         int evalDoAfterBody = _jspx_th_c_005fif_005f4.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -573,13 +573,13 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_005fforEach_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("\t\t\t\t\t<tr>\n");
-          out.write("\t\t\t\t\t\t<td><font color=\"#BCB028\">");
+          out.write("\t\t\t\t\t<div class=\"row\">\n");
+          out.write("\t\t\t\t\t\t<div class=\"col-md-2\"><p class=\"lead\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${track.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</font></td>\n");
-          out.write("\t\t\t\t\t\t<td><font color=\"#BCB028\">");
+          out.write("</p></div>\n");
+          out.write("\t\t\t\t\t\t<div class=\"col-md-2\"><p class=\"lead\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${track.artists[0].name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</font></td>\n");
+          out.write("</p></div>\n");
           out.write("\t\t\t\t\t\t");
           if (_jspx_meth_c_005fset_005f4(_jspx_th_c_005fforEach_005f1, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f1))
             return true;
@@ -588,10 +588,12 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
           if (_jspx_meth_c_005fset_005f5(_jspx_th_c_005fforEach_005f1, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f1))
             return true;
           out.write("\n");
-          out.write("\t\t\t\t\t<td><iframe src=\"");
+          out.write("\t\t\t\t\t\t<div class=\"col-md-4\">\n");
+          out.write("\t\t\t\t\t\t\t<iframe src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${thisSongURL}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("\" frameborder=\"0\" allowtransparency=\"true\" height=\"110\"></iframe></td>\n");
-          out.write("\t\t\t\t\t</tr>\n");
+          out.write("\" frameborder=\"0\" allowtransparency=\"true\" height=\"110\"></iframe>\n");
+          out.write("\t\t\t\t\t\t</div>\n");
+          out.write("\t\t\t\t\t</div>\n");
           out.write("\t\t\t\t");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

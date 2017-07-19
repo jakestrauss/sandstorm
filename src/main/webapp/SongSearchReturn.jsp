@@ -13,24 +13,27 @@
 		<h4>That song is already in the playlist!</h4>
 	</c:if>
 
-	<br>
-	<br>
-	<h2>Search Results</h2>
-	<table>
-		<tr>
-			<th>Song name</th>
-			<th>Artist name</th>
-		</tr>
+	<c:if test="${not empty playlist}">
+		<br>
+		<br>
+	</c:if>
+	
+	<h2 style="margin-left:10px">Search Results</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2"><h3>Song name</h3></div>
+			<div class="col-md-2"><h3>Artist name</h3></div>
+		</div>
 
 		<c:forEach items="${tracks}" var="track">
-			<tr>
-				<td>${track.name}</td>
-				<td>${track.artists[0].name}</td>
-				<td>
+			<div class="row">
+				<div class="col-md-2"><p class="lead">${track.name}</p></div>
+				<div class="col-md-2"><p class="lead">${track.artists[0].name}</p></div>
+				<div class="col-md-4">
 					<c:set var="thisSongURL" value="https://open.spotify.com/embed?uri="/>
 					<c:set var="thisSongURL" value="${thisSongURL}${track.uri}"/>
 					<iframe src="${thisSongURL}" frameborder="0" allowtransparency="true" height="110"></iframe>
-				</td>
+				</div>
 				
 				<c:set var="notYetAdded" value="true"/>
 				<c:forEach items="${playlist.tracks}" var="playlistTrack">
@@ -39,16 +42,16 @@
 					</c:if>
 				</c:forEach>
 					<c:if test="${notYetAdded eq true}">
-						<td>
+						<div class="col-md-2">
 							<form method="post" action="AddToPlaylist">
-								<button type="submit" name="Song" value="${track.id}">Add
+								<button type="submit" class="btn btn-success" name="Song" value="${track.id}">Add
 									Song to Playlist</button>
 							</form>
-						</td>
+						</div>
 					</c:if>
-			</tr>
+			</div>
 		</c:forEach>
-	</table>
+	</div>
 
 	<jsp:include page="BackToHome.jsp" />
 

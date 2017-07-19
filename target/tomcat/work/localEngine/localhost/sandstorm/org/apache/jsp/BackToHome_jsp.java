@@ -60,7 +60,7 @@ public final class BackToHome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("\t<form method=\"post\" action=\"IndexReturn\">\n");
-      out.write("\t\t<input type=\"submit\" value=\"Return to search\">\n");
+      out.write("\t\t<button type=\"submit\" class=\"btn btn-default\" style=\"margin-left:10px; margin-bottom:20px;\">Return to search</button>\n");
       out.write("\t</form>\n");
       out.write("</body>\n");
       out.write("</html>");

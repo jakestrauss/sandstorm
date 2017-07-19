@@ -71,23 +71,25 @@
 	</c:if>
 	
 	<c:if test="${not empty sandstorm}">
-		<h2><font color="#BCB028">Sandstormed Playlist</font></h2>
-			<table>
-				<tr>
-					<th><font color="#BCB028">Song name</font></th>
-					<th><font color="#BCB028">Artist name</font></th>
-				</tr>
+		<h2 style="margin-left:10px">Sandstormed Playlist</h2>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2"><h3>Song name</h3></div>
+					<div class="col-md-2"><h3>Artist name</h3></div>
+				</div>
 				
 				<c:forEach items="${playlist.tracks}" var="track">
-					<tr>
-						<td><font color="#BCB028">${track.name}</font></td>
-						<td><font color="#BCB028">${track.artists[0].name}</font></td>
+					<div class="row">
+						<div class="col-md-2"><p class="lead">${track.name}</p></div>
+						<div class="col-md-2"><p class="lead">${track.artists[0].name}</p></div>
 						<c:set var="thisSongURL" value="https://open.spotify.com/embed?uri="/>
 						<c:set var="thisSongURL" value="${thisSongURL}${track.uri}"/>
-					<td><iframe src="${thisSongURL}" frameborder="0" allowtransparency="true" height="110"></iframe></td>
-					</tr>
+						<div class="col-md-4">
+							<iframe src="${thisSongURL}" frameborder="0" allowtransparency="true" height="110"></iframe>
+						</div>
+					</div>
 				</c:forEach>	
-			</table>	
+			</div>	
 	</c:if>
 	<br/>
 </body>

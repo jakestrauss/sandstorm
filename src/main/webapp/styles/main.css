@@ -33,3 +33,8 @@ body.sandstormBody {
 	margin-right:auto;
 	width:575px;
 }
+
+.smallerCol {
+	width:30px;
+	margin-right:52px;
+}

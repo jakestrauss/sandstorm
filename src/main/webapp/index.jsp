@@ -55,24 +55,26 @@
 		</c:if>
 		
 		<c:if test="${not empty sandstorm}">
-			<h3><font color="#BCB028">Your playlist has been successfully 
-			sandstormed! Would you like to:</font></h3>
-			<table>
-				<tr>
-					<td>
+			<h3 style="margin-left:10px">Your playlist has been successfully 
+			sandstormed! Would you like to:</h3>
+			<div class="container" style="margin-left:10px; margin-bottom:20px">
+				<div class="row">
+					<div class="col-md-4">
 						<form method="post" action="ExportToSpotify">
-							<button type="submit"><font color="#BCB028">Add this playlist to 
-							your Spotify account</font></button>
+							<button type="submit" class="btn btn-warning">Add this playlist to 
+							your Spotify account</button>
 						</form>
-					</td>
-					<td><font color="#BCB028">or</font></td>
-					<td>
+					</div>
+					<div class="col-md-1">
+						<p class="lead">or</p>
+					</div>
+					<div class="col-md-2">
 						<form method="post" action="StartOver">
-							<button type="submit"><font color="#BCB028">Start a new playlist</font></button>
+							<button type="submit" class="btn btn-warning">Start a new playlist</button>
 						</form>
-					</td>
-				</tr>
-			</table>
+					</div>
+				</div>
+			</div>
 			
 		</c:if>
 

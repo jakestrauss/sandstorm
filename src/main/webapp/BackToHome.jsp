@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form method="post" action="IndexReturn">
-		<input type="submit" value="Return to search">
+		<button type="submit" class="btn btn-default" style="margin-left:10px; margin-bottom:20px;">Return to search</button>
 	</form>
 </body>
 </html>

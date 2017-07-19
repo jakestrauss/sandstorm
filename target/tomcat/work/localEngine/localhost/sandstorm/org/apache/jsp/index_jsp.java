@@ -176,6 +176,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_005fif_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
+        out.write("\t\t\t<audio autoplay>\n");
+        out.write("\t\t\t\t<source src=\"sandstorm.mp3\" type=\"audio/mpeg\">\n");
+        out.write("\t\t\t</audio>\n");
         out.write("\t\t\t<h3 style=\"margin-left:10px\">Your playlist has been successfully \n");
         out.write("\t\t\tsandstormed! Would you like to:</h3>\n");
         out.write("\t\t\t<div class=\"container\" style=\"margin-left:10px; margin-bottom:20px\">\n");

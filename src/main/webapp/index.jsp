@@ -55,6 +55,9 @@
 		</c:if>
 		
 		<c:if test="${not empty sandstorm}">
+			<audio autoplay>
+				<source src="sandstorm.mp3" type="audio/mpeg">
+			</audio>
 			<h3 style="margin-left:10px">Your playlist has been successfully 
 			sandstormed! Would you like to:</h3>
 			<div class="container" style="margin-left:10px; margin-bottom:20px">

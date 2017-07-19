@@ -17,6 +17,7 @@ body:not(.sandstormBody) {
 
 body.sandstormBody {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcf3b8+1,f8ec9a+69,f4e376+88,f4e376+90 */
+	color: #373D3F;
 	background: rgb(252,243,184); /* Old browsers */
 	background: -moz-linear-gradient(-45deg, rgba(252,243,184,1) 1%, rgba(248,236,154,1) 69%, rgba(244,227,118,1) 88%, rgba(244,227,118,1) 90%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(-45deg, rgba(252,243,184,1) 1%,rgba(248,236,154,1) 69%,rgba(244,227,118,1) 88%,rgba(244,227,118,1) 90%); /* Chrome10-25,Safari5.1-6 */

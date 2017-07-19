@@ -419,7 +419,7 @@ public final class SongSearchReturn_jsp extends org.apache.jasper.runtime.HttpJs
         out.write("\n");
         out.write("\t\t\t\t\t\t<div class=\"col-md-2\">\n");
         out.write("\t\t\t\t\t\t\t<form method=\"post\" action=\"AddToPlaylist\">\n");
-        out.write("\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\" name=\"Song\" value=\"");
+        out.write("\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary\" name=\"Song\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${track.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\">Add\n");
         out.write("\t\t\t\t\t\t\t\t\tSong to Playlist</button>\n");

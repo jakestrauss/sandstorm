@@ -9,24 +9,25 @@
 <body>
 	<jsp:include page="Header.jsp" />
 	<br>
-	<table>
-		<tr>
-			<th>Album Name</th>
-		</tr>
+	<div class="container">
+		<div class = "row">
+			<div class="col-md-2"><h3>Album Name</h3></div>
+		</div>
 		
 		<c:forEach items="${albums}" var="album">
-			<tr>
-				<td>${album.name}</td>
-				<td>${album.artists[0].name}</td>
-				<td>
+			<div class="row">
+				<div class="col-md-2"><p class="lead">${album.name}</p></div>
+				<div class="col-md-2">${album.artists[0].name}</p></div>
+				<div class="col-md-2">
 					<form method="post" action="AlbumExamine">
-						<button type="submit" name="Album name" value="${album.id}">Select album</button>
+						<button type="submit" name="Album name" class="btn btn-primary" 
+						value="${album.id}">Select album</button>
 					</form>
-				</td>
-			</tr>
+				</div>
+			</div>
 		</c:forEach>	
 		
-	</table>
+	</div>
 	<jsp:include page="BackToHome.jsp" />
 
 

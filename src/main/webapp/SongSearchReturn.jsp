@@ -44,7 +44,7 @@
 					<c:if test="${notYetAdded eq true}">
 						<div class="col-md-2">
 							<form method="post" action="AddToPlaylist">
-								<button type="submit" class="btn btn-success" name="Song" value="${track.id}">Add
+								<button type="submit" class="btn btn-primary" name="Song" value="${track.id}">Add
 									Song to Playlist</button>
 							</form>
 						</div>

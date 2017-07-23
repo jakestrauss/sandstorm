@@ -8,6 +8,7 @@
 </head>
 <body>
 	<jsp:include page="Header.jsp" />
+	<jsp:include page="BackToHome.jsp" />
 	<br>
 	<div class="container">
 		<div class="row">
@@ -27,7 +28,6 @@
 		</c:forEach>	
 		
 	</div>
-	<jsp:include page="BackToHome.jsp" />
 
 
 </body>

@@ -12,7 +12,9 @@
 	<c:if test="${not addedToPlaylist && playlist.size >= 1}">
 		<h4>That song is already in the playlist!</h4>
 	</c:if>
-
+	
+	<jsp:include page="BackToHome.jsp" />
+	
 	<c:if test="${not empty playlist}">
 		<br>
 		<br>
@@ -52,8 +54,6 @@
 			</div>
 		</c:forEach>
 	</div>
-
-	<jsp:include page="BackToHome.jsp" />
 
 
 </body>

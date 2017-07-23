@@ -37,7 +37,7 @@ public class ExportToSpotify extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean heroku = true;
+		boolean heroku = false;
 		String redirectURI = heroku ? 
 				"https://sandstorm-by-jake-strauss.herokuapp.com/callback.jsp" : 
 				"http://localhost:8080/sandstorm/callback.jsp";
